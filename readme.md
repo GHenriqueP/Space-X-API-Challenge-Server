@@ -11,9 +11,11 @@ O backend deste projeto foi construído usando as seguintes tecnologias:
 - **Node.js:** O ambiente de execução JavaScript que permite a construção de aplicativos do lado do servidor.
 - **Express.js:** Um framework web para Node.js que simplifica a criação de APIs e aplicativos web.
 - **Prisma:** Um ORM (Object-Relational Mapping) para banco de dados que facilita a interação com o banco de dados.
-- **Commitizen:** Uma ferramenta para facilitar a padronização de mensagens de commit no projeto.
 - **Swagger:** Uma ferramenta para documentação de APIs que torna a documentação e teste de endpoints mais fácil.
-- **TypeScript:** Uma linguagem que adiciona tipagem estática ao JavaScript, trazendo maior segurança e inteligência ao desenvolvimento.
+- **TypeScript:** Uma linguagem que adiciona tipagem estática ao JavaScript, trazendo maior segurança e inteligência ao
+  desenvolvimento.
+- **Axios:** Uma biblioteca para fazer requisições HTTP a partir do Node.js ou do navegador.
+- **CORS:** Uma biblioteca para habilitar o controle de acesso a recursos de um servidor web a partir de diferentes origens, melhorando a segurança em aplicações web.
 
 ## Pré-requisitos
 
