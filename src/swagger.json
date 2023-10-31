@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SpaceX - API Challenge - OpenAPI 3.0",
+    "description": "This API connects to the open source project SpaceX - API, to search for rocket launches.",
+    "contact": {
+      "email": "ghguga123@gmail.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://opensource.org/license/mit/"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "API de teste"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Launches",
+      "description": "Operations about launches"
+    }
+  ],
+  "paths": {
+    "/launches": {
+      "get": {
+        "tags": ["Launches"],
+        "summary": "Returns Launches",
+        "description": "Returns all launches by default and specific launches when using filters by parameters.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "You can filter any field string number or url",
+            "required": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The number of the page",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit of register to the page",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#components/schemas/Launches",
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro ao buscar os lançamentos"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/apiFill": {
+      "get": {
+        "tags": ["Launches"],
+        "summary": "Populate the Database",
+        "description": "This route performs a search on the SpaceX API - API, and takes all records that do not already exist in the database and creates them.",
+        "responses": {
+          "200": {
+            "description": "sucesso com body ou sem body" 
+          },
+          "204": {
+            "description": "sucesso sem body" 
+          },
+          "400": {
+            "description": "Erro ao buscar os lançamentos, contate a equipe de suporte" 
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": ["Launches"],
+        "summary": "Message of Welcome",
+        "description": "This route shows a message of Welcome",
+        "requestBody": {
+          "content": {
+            "application/json": {
+
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso" 
+          },
+          "400": {
+            "description": "Erro ao acessar o servidor, contate a equipe de suporte" 
+          }
+        }
+      }
+    }
+  },
+    "components": {
+      "schemas": {
+        "Launches": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "example": 10
+            },
+            "flightNumber": {
+              "type": "integer",
+              "example": "187"
+            },
+            "logo": {
+              "type": "string",
+              "example": "https://images2.imgbox.com/fa/dc/FOUDQ0Sn_o.png"
+            },
+            "missionName": {
+              "type": "string",
+              "example": "COTS 1"
+            },
+            "launchDate": {
+              "type": "string",
+              "example": "date-time"
+            },
+            "success": {
+              "type": "boolean",
+              "example": "true",
+              "enum": ["true", "false"]
+            },
+            "rocket": {
+              "type": "string",
+              "example": "5e9d0d95eda69973a809d1ec"
+            },
+            "ytbUrl": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "json": {
+            "name": "Launch"
+          }
+        }
+      }
+    }
+  }
